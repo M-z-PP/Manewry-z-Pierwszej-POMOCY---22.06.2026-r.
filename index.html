@@ -8,7 +8,7 @@
 <style>
 body {
     background-image:
-        linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)),
+        linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)),
         url('tlo_mdp.jpg'); /* ← tu wstaw zdjęcie z manewrów */
     background-size: cover;
     background-position: center;
@@ -21,20 +21,6 @@ body {
 }
 
 /* NAGŁÓWEK */
-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-header img {
-    width: 120px;
-    height: auto;
-    border-radius: 10px;
-}
-
 h1 {
     font-size: 2.5rem;
     text-transform: uppercase;
@@ -52,11 +38,21 @@ h1 span {
     color: #ccc;
 }
 
+/* LOGO POD TYTUŁEM */
+.logo {
+    margin-top: 15px;
+}
+.logo img {
+    width: 120px;
+    height: auto;
+    border-radius: 10px;
+}
+
 /* PRZYCISKI */
 .container {
     max-width: 420px;
     margin: 40px auto;
-    background: rgba(47, 47, 79, 0.45);
+    background: rgba(47, 47, 79, 0.55);
     padding: 25px;
     border-radius: 20px;
     backdrop-filter: blur(12px);
@@ -108,13 +104,12 @@ a:hover { color: white; }
 
 <body>
 
-<header>
+<h1>MANEWRY <span>PIERWSZEJ POMOCY</span></h1>
+<div class="byline">by: OSP PKM Gdynia</div>
+
+<div class="logo">
     <img src="logo_osp.png" alt="Logo OSP PKM Gdynia">
-    <div>
-        <h1>Manewry <span>Pierwszej Pomocy</span></h1>
-        <div class="byline">by: OSP PKM Gdynia</div>
-    </div>
-</header>
+</div>
 
 <div class="container">
     <button onclick="show('mdp')">Jestem zainteresowany wstąpieniem do MDP</button>
@@ -133,7 +128,8 @@ a:hover { color: white; }
 
     <div id="zdjecia" class="section">
         <h3>Zdjęcia z manewrów</h3>
-        <a href="galeria.html">➡️ Przejdź do galerii</a>
+        <img src="foto1.jpg" alt="Manewry 1" style="width:100%;border-radius:10px;margin-bottom:10px;">
+        <img src="foto2.jpg" alt="Manewry 2" style="width:100%;border-radius:10px;">
     </div>
 
     <div id="wyniki" class="section">
