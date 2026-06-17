@@ -9,7 +9,7 @@
 body {
     background-image:
         linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)),
-        url('tlo_mdp.jpg'); /* tu wstaw zdjęcie z kolegami */
+        url('tlo_mdp.jpg'); /* ← tu wstaw zdjęcie z manewrów */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -138,4 +138,27 @@ a:hover { color: white; }
 
     <div id="wyniki" class="section">
         <h3>Wyniki manewrów</h3>
-        <a href="wyniki.html">
+        <a href="wyniki.html">➡️ Zobacz wyniki</a>
+    </div>
+
+    <div id="opinie" class="section">
+        <h3>Jak to jest być w MDP?</h3>
+        • „Super atmosfera, dużo akcji i nauki!”  
+        • „Najlepsza drużyna, jaką można sobie wyobrazić.”  
+        • „Manewry to adrenalina i świetna zabawa.”  
+    </div>
+</div>
+
+<script>
+function show(id){
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+function kontakt(){
+    window.open("https://www.facebook.com/mdposppkmgdynia", "_blank");
+}
+</script>
+
+</body>
+</html>
