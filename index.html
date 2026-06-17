@@ -1,151 +1,46 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Manewry Pierwszej Pomocy – OSP PKM Gdynia</title>
+  <meta charset="UTF-8" />
+  <title>Manewry z pierwszej pomocy</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #000; /* jeśli masz tło jako obraz, możesz tu dać background-image */
+      color: #fff;
+    }
 
-<style>
-body {
-    background-color: #000; /* całe tło czarne */
-    color: white;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 40px 20px;
-}
+    .banner {
+      position: relative;
+      width: 100%;
+      height: 400px; /* dopasuj do swojej grafiki */
+      background: url('twoje-tlo.jpg') center/cover no-repeat;
+    }
 
-/* NAGŁÓWEK Z LOGO I TEKSTEM */
-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
+    .main-title {
+      position: absolute;
+      top: 20%;
+      left: 10%;
+      font-size: 48px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
 
-header img {
-    width: 120px;
-    height: auto;
-}
-
-/* NAPISY */
-h1 {
-    font-size: 2.8rem;
-    text-transform: uppercase;
-    margin: 0;
-    color: #fff;
-}
-h1 span {
-    color: #ff2e2e;
-    text-shadow: 0 0 10px #ff2e2e, 0 0 20px #ff2e2e, 0 0 40px #ff2e2e;
-}
-
-.byline {
-    font-size: 1rem;
-    margin-top: 5px;
-    color: #ccc;
-}
-
-/* PRZYCISKI */
-.container {
-    max-width: 420px;
-    margin: 40px auto;
-    background: rgba(47, 47, 79, 0.55);
-    padding: 25px;
-    border-radius: 20px;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 0 25px rgba(255,0,0,0.4);
-    border: 1px solid rgba(255,255,255,0.1);
-}
-
-button {
-    display: block;
-    margin: 15px auto;
-    padding: 15px;
-    width: 100%;
-    border-radius: 12px;
-    border: none;
-    font-size: 1.1rem;
-    background: linear-gradient(135deg, #2F2F4F, #1a1a3a);
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-    border: 1px solid rgba(255,0,0,0.3);
-    transition: 0.2s;
-}
-button:hover {
-    transform: translateY(-2px);
-    background: linear-gradient(135deg, #3a3a63, #22224d);
-}
-
-/* SEKCJE */
-.section {
-    display: none;
-    margin-top: 20px;
-    text-align: left;
-    background: rgba(0,0,0,0.4);
-    padding: 20px;
-    border-radius: 15px;
-    border-left: 4px solid #ff2e2e;
-    line-height: 1.7;
-}
-.active { display: block; }
-
-a {
-    color: #ff2e2e;
-    font-weight: bold;
-    text-decoration: none;
-}
-a:hover { color: white; }
-</style>
+    .hashtag {
+      position: absolute;
+      top: 55%;          /* pod głównym napisem */
+      right: 10%;        /* po prawej stronie */
+      font-size: 24px;
+      font-weight: 600;
+      text-transform: lowercase;
+    }
+  </style>
 </head>
-
 <body>
-
-<header>
-    <img src="logo_osp_v2.jfif" alt="Logo OSP PKM Gdynia">
-    <div>
-        <h1>MANEWRY <span>PIERWSZEJ POMOCY</span></h1>
-        <div class="byline">by: OSP PKM Gdynia</div>
-    </div>
-</header>
-
-<div class="container">
-    <button onclick="show('zdjecia')">Zdjęcia z manewrów</button>
-    <button onclick="show('wyniki')">Wyniki manewrów</button>
-    <button onclick="show('opinie')">Opinie uczestników</button>
-    <button onclick="kontakt()">Kontakt do instruktorów</button>
-
-    <div id="zdjecia" class="section">
-        <h3>Zdjęcia z manewrów</h3>
-        <img src="foto1.jpg" style="width:100%;border-radius:10px;margin-bottom:10px;">
-        <img src="foto2.jpg" style="width:100%;border-radius:10px;">
-    </div>
-
-    <div id="wyniki" class="section">
-        <h3>Wyniki manewrów</h3>
-        <a href="wyniki.html">➡️ Zobacz wyniki</a>
-    </div>
-
-    <div id="opinie" class="section">
-        <h3>Opinie uczestników</h3>
-        • „Super atmosfera, dużo akcji i nauki!”  
-        • „Najlepsza drużyna, jaką można sobie wyobrazić.”  
-        • „Manewry to adrenalina i świetna zabawa.”  
-    </div>
-</div>
-
-<script>
-function show(id){
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-}
-
-function kontakt(){
-    window.open("https://www.facebook.com/mdposppkmgdynia", "_blank");
-}
-</script>
-
+  <div class="banner">
+    <div class="main-title">Manewry z pierwszej pomocy</div>
+    <div class="hashtag">#strażacyzzajezdni</div>
+  </div>
 </body>
 </html>
