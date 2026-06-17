@@ -7,12 +7,7 @@
 
 <style>
 body {
-    background-image:
-        linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)),
-        url('tlo_mdp.jpg'); /* ← zdjęcie z manewrów */
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background-color: #000; /* czarne tło */
     color: white;
     font-family: 'Segoe UI', Arial, sans-serif;
     text-align: center;
@@ -20,32 +15,36 @@ body {
     padding: 40px 20px;
 }
 
-/* NAGŁÓWEK */
+/* NAGŁÓWEK Z LOGO I TEKSTEM */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+header img {
+    width: 120px;
+    height: auto;
+}
+
+/* NAPISY */
 h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     text-transform: uppercase;
     margin: 0;
     color: #fff;
 }
 h1 span {
     color: #ff2e2e;
-    text-shadow: 0 0 10px #ff2e2e, 0 0 20px #ff2e2e;
+    text-shadow: 0 0 10px #ff2e2e, 0 0 20px #ff2e2e, 0 0 40px #ff2e2e;
 }
 
 .byline {
     font-size: 1rem;
     margin-top: 5px;
     color: #ccc;
-}
-
-/* LOGO POD TYTUŁEM */
-.logo {
-    margin-top: 15px;
-}
-.logo img {
-    width: 120px;
-    height: auto;
-    border-radius: 10px;
 }
 
 /* PRZYCISKI */
@@ -56,7 +55,7 @@ h1 span {
     padding: 25px;
     border-radius: 20px;
     backdrop-filter: blur(12px);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    box-shadow: 0 8px 32px rgba(255,0,0,0.4);
     border: 1px solid rgba(255,255,255,0.1);
 }
 
@@ -72,7 +71,7 @@ button {
     color: white;
     cursor: pointer;
     font-weight: bold;
-    border: 1px solid rgba(122,183,255,0.3);
+    border: 1px solid rgba(255,0,0,0.3);
     transition: 0.2s;
 }
 button:hover {
@@ -88,13 +87,13 @@ button:hover {
     background: rgba(0,0,0,0.4);
     padding: 20px;
     border-radius: 15px;
-    border-left: 4px solid #7ab7ff;
+    border-left: 4px solid #ff2e2e;
     line-height: 1.7;
 }
 .active { display: block; }
 
 a {
-    color: #7ab7ff;
+    color: #ff2e2e;
     font-weight: bold;
     text-decoration: none;
 }
@@ -104,34 +103,24 @@ a:hover { color: white; }
 
 <body>
 
-<h1>MANEWRY <span>PIERWSZEJ POMOCY</span></h1>
-<div class="byline">by: OSP PKM Gdynia</div>
-
-<div class="logo">
+<header>
     <img src="logo_osp.png" alt="Logo OSP PKM Gdynia">
-</div>
+    <div>
+        <h1>MANEWRY <span>PIERWSZEJ POMOCY</span></h1>
+        <div class="byline">by: OSP PKM Gdynia</div>
+    </div>
+</header>
 
 <div class="container">
-    <button onclick="show('mdp')">Jestem zainteresowany wstąpieniem do MDP</button>
     <button onclick="show('zdjecia')">Zdjęcia z manewrów</button>
     <button onclick="show('wyniki')">Wyniki manewrów</button>
-    <button onclick="show('opinie')">Jak to jest być w MDP – opinie</button>
-    <button onclick="kontakt()">Kontakt do instruktorów MDP</button>
-
-    <div id="mdp" class="section">
-        <h3>Wstąpienie do MDP</h3>
-        Dołącz do Młodzieżowej Drużyny Pożarniczej OSP PKM Gdynia!  
-        Nauczysz się pierwszej pomocy, pracy zespołowej i obsługi sprzętu strażackiego.  
-        <br><br>
-        Napisz do nas na Facebooku – odpowiemy szybko!
-    </div>
+    <button onclick="show('opinie')">Opinie uczestników</button>
+    <button onclick="kontakt()">Kontakt do instruktorów</button>
 
     <div id="zdjecia" class="section">
         <h3>Zdjęcia z manewrów</h3>
-
-        <!-- Wstaw tu swoje zdjęcia -->
-        <img src="foto1.jpg" alt="Manewry 1" style="width:100%;border-radius:10px;margin-bottom:10px;">
-        <img src="foto2.jpg" alt="Manewry 2" style="width:100%;border-radius:10px;">
+        <img src="foto1.jpg" style="width:100%;border-radius:10px;margin-bottom:10px;">
+        <img src="foto2.jpg" style="width:100%;border-radius:10px;">
     </div>
 
     <div id="wyniki" class="section">
@@ -140,7 +129,7 @@ a:hover { color: white; }
     </div>
 
     <div id="opinie" class="section">
-        <h3>Jak to jest być w MDP?</h3>
+        <h3>Opinie uczestników</h3>
         • „Super atmosfera, dużo akcji i nauki!”  
         • „Najlepsza drużyna, jaką można sobie wyobrazić.”  
         • „Manewry to adrenalina i świetna zabawa.”  
