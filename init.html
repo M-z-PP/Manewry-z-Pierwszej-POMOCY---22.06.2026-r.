@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manewry Pierwszej Pomocy – MDP OSP PKM Gdynia</title>
+
+<style>
+body {
+    background-image:
+        linear-gradient(to top, rgba(0, 20, 60, 0.9), rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.85)),
+        url('tlo_mdp.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    text-align: center;
+    padding: 30px;
+    margin: 0;
+}
+
+/* NEON HEADER */
+h1 {
+    font-size: 2.4rem;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 25px;
+}
+h1 span {
+    color: #ff4fa3;
+    text-shadow: 0 0 10px #ff4fa3, 0 0 20px #ff4fa3, 0 0 40px #ff4fa3;
+}
+
+/* KONTENER */
+.box {
+    max-width: 420px;
+    margin: 0 auto;
+    background: rgba(47, 47, 79, 0.45);
+    padding: 25px;
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* PRZYCISKI */
+button {
+    display: block;
+    margin: 15px auto;
+    padding: 15px;
+    width: 100%;
+    border-radius: 12px;
+    border: none;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, #2F2F4F, #1a1a3a);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    border: 1px solid rgba(122,183,255,0.3);
+    transition: 0.2s;
+}
+button:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #3a3a63, #22224d);
+}
+
+/* OPISY */
+.section {
+    display: none;
+    margin-top: 20px;
+    text-align: left;
+    background: rgba(0,0,0,0.4);
+    padding: 20px;
+    border-radius: 15px;
+    border-left: 4px solid #7ab7ff;
+    line-height: 1.7;
+}
+.active { display: block; }
+
+/* LINK */
+a {
+    color: #7ab7ff;
+    font-weight: bold;
+    text-decoration: none;
+}
+a:hover { color: white; }
+</style>
+</head>
+
+<body>
+
+<h1>Manewry <span>Pierwszej Pomocy</span></h1>
+
+<div class="box">
+
+    <button onclick="show('mdp')">Jestem zainteresowany wstąpieniem do MDP</button>
+    <button onclick="show('zdjecia')">Zdjęcia z manewrów</button>
+    <button onclick="show('wyniki')">Wyniki manewrów</button>
+    <button onclick="show('opinie')">Jak to jest być w MDP – opinie</button>
+    <button onclick="kontakt()">Kontakt do instruktorów MDP</button>
+
+    <!-- SEKCJE -->
+    <div id="mdp" class="section">
+        <h3>Wstąpienie do MDP</h3>
+        Jeśli chcesz dołączyć do Młodzieżowej Drużyny Pożarniczej OSP PKM Gdynia – super decyzja!  
+        Nauczysz się pierwszej pomocy, pracy zespołowej, sprzętu strażackiego i weźmiesz udział w zawodach oraz manewrach.
+        <br><br>
+        Napisz do nas na Facebooku – odpowiemy szybko!
+    </div>
+
+    <div id="zdjecia" class="section">
+        <h3>Zdjęcia z manewrów</h3>
+        Tutaj możesz dodać galerię zdjęć, np.:
+        <br><br>
+        <a href="galeria.html">➡️ Przejdź do galerii</a>
+    </div>
+
+    <div id="wyniki" class="section">
+        <h3>Wyniki manewrów</h3>
+        Możesz tu wkleić tabelę wyników, PDF lub link do dokumentu.
+        <br><br>
+        <a href="wyniki.html">➡️ Zobacz wyniki</a>
+    </div>
+
+    <div id="opinie" class="section">
+        <h3>Jak to jest być w MDP?</h3>
+        • „Super atmosfera, dużo akcji i nauki!”  
+        • „Najlepsza drużyna, jaką można sobie wyobrazić.”  
+        • „Manewry to adrenalina i świetna zabawa.”  
+        <br>
+        Możesz tu dodać więcej opinii członków.
+    </div>
+
+</div>
+
+<script>
+function show(id){
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+function kontakt(){
+    window.open("https://www.facebook.com/osp.pkm.gdynia", "_blank");
+}
+</script>
+
+</body>
+</html>
