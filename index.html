@@ -183,7 +183,7 @@ footer .author {
 
     <div class="countdown" id="countdown"></div>
 
-    <button onclick="show('mdp')">Jestem zainteresowan* wstąpieniem do MDP</button>
+    <button onclick="show('mdp')">Jestem zainteresowany/a wstąpieniem do MDP</button>
 
     <div id="mdp" class="section">
         <h3>Odpowiedzi na pytania zainteresowanych wstąpieniem do MDP</h3>
@@ -214,10 +214,11 @@ footer .author {
     </div>
 
     <div id="opinie" class="section">
-        <h3>Opinie uczestników</h3>
-        • „Super atmosfera, dużo akcji i nauki!”<br>
-        • „Najlepsza drużyna, jaką można sobie wyobrazić.”<br>
-        • „Manewry to adrenalina i świetna zabawa.”
+        <h3>Opinia XYZ - Członek MDP</h3>
+        Bycie członkiem Młodzieżowej drużyny pożarniczej (MDP) daje mi możliwość rozwoju w dziedzinie pierwszej pomocy i nie tylko. <br>
+        Najbardziej uwielbiam zbiórki, na których zawsze jest coś nowego, a my sami możemy przetestować swoją wiedze i umiętności. <br>
+        MDP, to nie tylko znajomi, ale strażacka rodzina, na któą zawsze można liczyć! Przekonaj się sam wstępując w nasze szeregi!! <br>
+        Do zobaczenia! 
     </div>
 </div>
 
@@ -266,7 +267,7 @@ setInterval(() => {
     const h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
     const m = Math.floor((diff % (1000*60*60)) / (1000*60));
 
-    countdownEl.innerHTML = `⏳ Do manewrów: <b>${d} dni ${h}h ${m}m</b>`;
+    countdownEl.innerHTML = `⏳ Do manewrów zostało: <b>${d} dni ${h}h ${m}m</b>`;
 }, 1000);
 </script>
 
