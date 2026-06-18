@@ -60,12 +60,14 @@ header img {
     border-radius: 8px;
     padding: 4px 10px;
     display: inline-block;
+    text-shadow: 0 0 4px white;
 }
 .hashtag span.hash { color: #000; }
 .hashtag span.strazacy { color: #ff2e2e; }
+.hashtag span.z { color: #000; }
 .hashtag span.zajezdni { color: #001f6b; }
 
-/* PRZYCISKI */
+/* KWADRAT Z PRZYCISKAMI */
 .container {
     max-width: 420px;
     margin: 40px auto;
@@ -77,6 +79,15 @@ header img {
     border: 1px solid rgba(255,255,255,0.1);
 }
 
+/* ODLICZANIE */
+.countdown {
+    font-size: 1.2rem;
+    color: #7ab7ff;
+    text-shadow: 0 0 10px #7ab7ff;
+    margin-bottom: 20px;
+}
+
+/* PRZYCISKI */
 button {
     display: block;
     margin: 15px auto;
@@ -117,14 +128,6 @@ a {
 }
 a:hover { color: white; }
 
-/* ODLICZANIE */
-.countdown {
-    margin-top: 30px;
-    font-size: 1.2rem;
-    color: #7ab7ff;
-    text-shadow: 0 0 10px #7ab7ff;
-}
-
 /* STOPKA */
 footer {
     margin-top: 60px;
@@ -139,11 +142,15 @@ footer .line {
 footer .social {
     margin-bottom: 8px;
 }
-footer .social a {
+footer .social img {
+    width: 32px;
+    height: 32px;
     margin: 0 10px;
-    color: white;
-    font-size: 1.5rem;
-    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+footer .social img:hover {
+    transform: scale(1.1);
 }
 footer .author {
     font-size: 0.9rem;
@@ -161,11 +168,13 @@ footer .author {
         <h1>MANEWRY <span>PIERWSZEJ POMOCY</span></h1>
     </div>
     <div class="hashtag">
-        <span class="hash">#</span><span class="strazacy">strażacy</span><span class="zajezdni">zajezdni</span>
+        <span class="hash">#</span><span class="strazacy">strażacy</span><span class="z">z</span><span class="zajezdni">zajezdni</span>
     </div>
 </header>
 
 <div class="container">
+    <div class="countdown" id="countdown"></div>
+
     <button onclick="show('zdjecia')">Zdjęcia z manewrów</button>
     <button onclick="show('wyniki')">Wyniki manewrów</button>
     <button onclick="show('opinie')">Opinie uczestników</button>
@@ -190,13 +199,15 @@ footer .author {
     </div>
 </div>
 
-<div class="countdown" id="countdown"></div>
-
 <footer>
     <div class="line"></div>
     <div class="social">
-        <a href="https://www.facebook.com/mdposppkmgdynia" target="_blank">📘</a>
-        <a href="https://www.instagram.com/mdposppkmgdynia" target="_blank">📸</a>
+        <a href="https://www.facebook.com/mdposppkmgdynia" target="_blank">
+            <img src="logo_facebook.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/mdposppkmgdynia" target="_blank">
+            <img src="logo_ig.png" alt="Instagram">
+        </a>
     </div>
     <div class="author">Autor strony: Maksymilian Klemczyk</div>
 </footer>
@@ -225,9 +236,3 @@ function updateCountdown(){
         return;
     }
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-    countdownEl.innerHTML = `⏳ Do rozpoczęcia manewrów: <b>${days} dni, ${hours}h ${minutes}m ${seconds
