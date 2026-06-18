@@ -6,15 +6,10 @@
 <title>Manewry Pierwszej Pomocy – OSP PKM Gdynia</title>
 
 <style>
+/* ===== TŁO ===== */
 body {
     background: 
-        linear-gradient(
-            to bottom,
-            rgba(0, 20, 60, 0.9) 0%,      /* ciemny granat u góry */
-            rgba(0, 20, 60, 0.8) 25%,    /* przejście */
-            rgba(0, 0, 0, 1) 50%,        /* od połowy – pełna czerń */
-            rgba(0, 0, 0, 1) 100%
-        );
+        linear-gradient(to bottom, #000 0%, #000 60%, rgba(255,0,0,0.25) 100%);
     color: white;
     font-family: 'Segoe UI', Arial, sans-serif;
     text-align: center;
@@ -22,60 +17,74 @@ body {
     padding: 40px 20px;
 }
 
-
-/* NAGŁÓWEK */
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
+/* ===== ALERT ===== */
+.alert-box {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255,0,0,0.85);
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255,0,0,0.6);
+    font-size: 1.1rem;
+    z-index: 9999;
+    width: 90%;
+    max-width: 420px;
+}
+.alert-box b { color: #fff; }
+.alert-close {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.3rem;
 }
 
+/* ===== NAGŁÓWEK ===== */
+header {
+    margin-bottom: 10px;
+}
 header img {
-    width: 120px;
+    width: 130px;
     height: auto;
 }
 
-/* TYTUŁ */
-.title {
-    text-align: center;
-    flex: 1;
-}
-.title h1 {
+/* ===== TYTUŁ ===== */
+h1 {
     font-size: 2.8rem;
-    text-transform: uppercase;
     margin: 0;
-    color: #fff;
+    text-transform: uppercase;
 }
-.title h1 span {
+h1 span {
     color: #ff2e2e;
-    text-shadow: 0 0 10px #ff2e2e, 0 0 20px #ff2e2e, 0 0 40px #ff2e2e;
+    text-shadow: 0 0 10px #ff2e2e, 0 0 20px #ff2e2e;
 }
 
-/* BYLINE I HASHTAG */
-.byline {
+/* ===== PODTYTUŁY POD TŁEM ===== */
+.sub-info {
+    margin-top: 10px;
     font-size: 1rem;
-    color: #ccc;
-    margin-top: 5px;
-    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
 }
+
+/* ===== HASHTAG ===== */
 .hashtag {
-    font-size: 1rem;
-    font-weight: bold;
-    text-align: right;
     border: 1px solid white;
-    border-radius: 8px;
     padding: 4px 10px;
-    display: inline-block;
+    border-radius: 8px;
+    font-weight: bold;
     text-shadow: 0 0 4px white;
 }
-.hashtag span.hash { color: #000; }
-.hashtag span.strazacy { color: #ff2e2e; }
-.hashtag span.z { color: #000; }
-.hashtag span.zajezdni { color: #001f6b; }
+.hashtag .hash { color: #000; }
+.hashtag .strazacy { color: #ff2e2e; }
+.hashtag .z { color: #000; }
+.hashtag .zajezdni { color: #001f6b; }
 
-/* KWADRAT Z PRZYCISKAMI */
+/* ===== KWADRAT ===== */
 .container {
     max-width: 420px;
     margin: 40px auto;
@@ -87,59 +96,48 @@ header img {
     border: 1px solid rgba(255,255,255,0.1);
 }
 
-/* ODLICZANIE */
+/* ===== ODLICZANIE ===== */
 .countdown {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: #7ab7ff;
     text-shadow: 0 0 10px #7ab7ff;
     margin-bottom: 20px;
 }
 
-/* PRZYCISKI */
+/* ===== PRZYCISKI ===== */
 button {
-    display: block;
-    margin: 15px auto;
-    padding: 15px;
     width: 100%;
+    padding: 15px;
+    margin: 12px 0;
     border-radius: 12px;
     border: none;
-    font-size: 1.1rem;
     background: linear-gradient(135deg, #2F2F4F, #1a1a3a);
     color: white;
-    cursor: pointer;
+    font-size: 1.1rem;
     font-weight: bold;
+    cursor: pointer;
     border: 1px solid rgba(255,0,0,0.3);
-    transition: 0.2s;
 }
 button:hover {
     transform: translateY(-2px);
     background: linear-gradient(135deg, #3a3a63, #22224d);
 }
 
-/* SEKCJE */
+/* ===== SEKCJE ===== */
 .section {
     display: none;
-    margin-top: 20px;
-    text-align: left;
     background: rgba(0,0,0,0.4);
     padding: 20px;
     border-radius: 15px;
     border-left: 4px solid #ff2e2e;
-    line-height: 1.7;
+    margin-top: 20px;
+    text-align: left;
 }
 .active { display: block; }
 
-a {
-    color: #ff2e2e;
-    font-weight: bold;
-    text-decoration: none;
-}
-a:hover { color: white; }
-
-/* STOPKA */
+/* ===== STOPKA ===== */
 footer {
     margin-top: 60px;
-    text-align: center;
 }
 footer .line {
     width: 80%;
@@ -147,44 +145,65 @@ footer .line {
     background-color: white;
     margin: 0 auto 10px;
 }
-footer .social {
-    margin-bottom: 8px;
-}
 footer .social img {
-    width: 32px;
-    height: 32px;
+    width: 34px;
     margin: 0 10px;
     cursor: pointer;
-    transition: 0.3s;
-}
-footer .social img:hover {
-    transform: scale(1.1);
 }
 footer .author {
-    font-size: 0.9rem;
+    margin-top: 8px;
     color: #ccc;
+    font-size: 0.9rem;
 }
 </style>
 </head>
 
 <body>
 
+<!-- ALERT -->
+<div class="alert-box" id="alertBox">
+    <div class="alert-close" onclick="closeAlert()">×</div>
+    <b>📢 Wyniki manewrów pojawią się 22.06 o godzinie 15:00!</b><br>
+    Przygotuj się — emocje gwarantowane, a rywalizacja będzie zacięta jak nigdy!
+</div>
+
 <header>
-    <div class="byline">by: OSP PKM Gdynia</div>
-    <div class="title">
-        <img src="logo_osp_v2.jfif" alt="Logo OSP PKM Gdynia">
-        <h1>MANEWRY <span>PIERWSZEJ POMOCY</span></h1>
-    </div>
-    <div class="hashtag">
-        <span class="hash">#</span><span class="strazacy">strażacy</span><span class="z">z</span><span class="zajezdni">zajezdni</span>
+    <img src="logo_osp_v2.jfif" alt="Logo OSP PKM Gdynia">
+    <h1>MANEWRY <span>PIERWSZEJ POMOCY</span></h1>
+
+    <div class="sub-info">
+        <div>by: OSP PKM Gdynia</div>
+        <div class="hashtag">
+            <span class="hash">#</span><span class="strazacy">strażacy</span><span class="z">z</span><span class="zajezdni">zajezdni</span>
+        </div>
     </div>
 </header>
 
 <div class="container">
+
     <div class="countdown" id="countdown"></div>
 
+    <button onclick="show('mdp')">Jestem zainteresowan* wstąpieniem do MDP</button>
+
+    <div id="mdp" class="section">
+        <h3>MDP – Najczęstsze pytania</h3>
+
+        <b>Kiedy odbywają się zbiórki?</b><br>
+        Co czwartek od 17:45 do 19:45<br><br>
+
+        <b>Od ilu lat można wstąpić do MDP?</b><br>
+        Od 12 lat<br><br>
+
+        <b>Gdzie odbywają się zbiórki?</b><br>
+        ul. Gospodarska 1 – Gdynia Chylonia<br><br>
+
+        <b>Kontakt do instruktorów:</b><br>
+        dh. Kamil Jędrzejewski – <a href="tel:+48668317282">+48 668‑317‑282</a><br>
+        dh. Bartosz Jamroży – <a href="tel:+48517323991">+48 517‑323‑991</a>
+    </div>
+
+    <button onclick="window.location.href='LINK_DO_EXCELA'">Wyniki manewrów</button>
     <button onclick="show('zdjecia')">Zdjęcia z manewrów</button>
-    <button onclick="show('wyniki')">Wyniki manewrów</button>
     <button onclick="show('opinie')">Opinie uczestników</button>
     <button onclick="kontakt()">Kontakt do instruktorów</button>
 
@@ -192,11 +211,6 @@ footer .author {
         <h3>Zdjęcia z manewrów</h3>
         <img src="foto1.jpg" style="width:100%;border-radius:10px;margin-bottom:10px;">
         <img src="foto2.jpg" style="width:100%;border-radius:10px;">
-    </div>
-
-    <div id="wyniki" class="section">
-        <h3>Wyniki manewrów</h3>
-        <a href="wyniki.html">➡️ Zobacz wyniki</a>
     </div>
 
     <div id="opinie" class="section">
@@ -211,10 +225,10 @@ footer .author {
     <div class="line"></div>
     <div class="social">
         <a href="https://www.facebook.com/mdposppkmgdynia" target="_blank">
-            <img src="logo_facebook.png" alt="Facebook">
+            <img src="logo_facebook.png">
         </a>
         <a href="https://www.instagram.com/mdposppkmgdynia" target="_blank">
-            <img src="logo_ig.png" alt="Instagram">
+            <img src="logo_ig.png">
         </a>
     </div>
     <div class="author">Autor strony: Maksymilian Klemczyk</div>
@@ -230,17 +244,31 @@ function kontakt(){
     window.open("https://www.facebook.com/mdposppkmgdynia", "_blank");
 }
 
-/* ODLICZANIE DO 22.06 8:55 */
+/* ALERT */
+function closeAlert(){
+    document.getElementById("alertBox").style.display = "none";
+}
+
+/* ODLICZANIE */
 const targetDate = new Date("June 22, 2026 08:55:00").getTime();
 const countdownEl = document.getElementById("countdown");
 
-function updateCountdown(){
+setInterval(() => {
     const now = new Date().getTime();
     const diff = targetDate - now;
 
     if(diff <= 0){
         countdownEl.innerHTML = "🚨 Manewry rozpoczęte!";
-        clearInterval(timer);
         return;
     }
 
+    const d = Math.floor(diff / (1000*60*60*24));
+    const h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+    const m = Math.floor((diff % (1000*60*60)) / (1000*60));
+
+    countdownEl.innerHTML = `⏳ Do manewrów: <b>${d} dni ${h}h ${m}m</b>`;
+}, 1000);
+</script>
+
+</body>
+</html>
