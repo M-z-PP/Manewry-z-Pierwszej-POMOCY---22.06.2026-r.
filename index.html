@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Manewry z Pierwszej Pomocy – OSP PKM Gdynia</title>
+<title>Manewry Pierwszej Pomocy – OSP PKM Gdynia</title>
 
 <style>
 body {
-    background-color: #000; /* całe tło czarne */
+    background: linear-gradient(to top, rgba(0, 20, 60, 0.9), rgba(0,0,0,0.85) 40%, #000);
     color: white;
     font-family: 'Segoe UI', Arial, sans-serif;
     text-align: center;
@@ -15,13 +15,13 @@ body {
     padding: 40px 20px;
 }
 
-/* NAGŁÓWEK Z LOGO I TEKSTEM */
+/* NAGŁÓWEK */
 header {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
+    justify-content: space-between;
     flex-wrap: wrap;
+    margin-bottom: 20px;
 }
 
 header img {
@@ -29,23 +29,41 @@ header img {
     height: auto;
 }
 
-/* NAPISY */
-h1 {
+/* TYTUŁ */
+.title {
+    text-align: center;
+    flex: 1;
+}
+.title h1 {
     font-size: 2.8rem;
     text-transform: uppercase;
     margin: 0;
     color: #fff;
 }
-h1 span {
+.title h1 span {
     color: #ff2e2e;
     text-shadow: 0 0 10px #ff2e2e, 0 0 20px #ff2e2e, 0 0 40px #ff2e2e;
 }
 
+/* BYLINE I HASHTAG */
 .byline {
     font-size: 1rem;
-    margin-top: 5px;
     color: #ccc;
+    margin-top: 5px;
+    text-align: left;
 }
+.hashtag {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: right;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 4px 10px;
+    display: inline-block;
+}
+.hashtag span.hash { color: #000; }
+.hashtag span.strazacy { color: #ff2e2e; }
+.hashtag span.zajezdni { color: #001f6b; }
 
 /* PRZYCISKI */
 .container {
@@ -98,16 +116,52 @@ a {
     text-decoration: none;
 }
 a:hover { color: white; }
+
+/* ODLICZANIE */
+.countdown {
+    margin-top: 30px;
+    font-size: 1.2rem;
+    color: #7ab7ff;
+    text-shadow: 0 0 10px #7ab7ff;
+}
+
+/* STOPKA */
+footer {
+    margin-top: 60px;
+    text-align: center;
+}
+footer .line {
+    width: 80%;
+    height: 1px;
+    background-color: white;
+    margin: 0 auto 10px;
+}
+footer .social {
+    margin-bottom: 8px;
+}
+footer .social a {
+    margin: 0 10px;
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+footer .author {
+    font-size: 0.9rem;
+    color: #ccc;
+}
 </style>
 </head>
 
 <body>
 
 <header>
-    <img src="logo_osp_v2.jfif" alt="Logo OSP PKM Gdynia">
-    <div>
+    <div class="byline">by: OSP PKM Gdynia</div>
+    <div class="title">
+        <img src="logo_osp_v2.jfif" alt="Logo OSP PKM Gdynia">
         <h1>MANEWRY <span>PIERWSZEJ POMOCY</span></h1>
-        <div class="byline">by: OSP PKM Gdynia</div>
+    </div>
+    <div class="hashtag">
+        <span class="hash">#</span><span class="strazacy">strażacy</span><span class="zajezdni">zajezdni</span>
     </div>
 </header>
 
@@ -130,11 +184,22 @@ a:hover { color: white; }
 
     <div id="opinie" class="section">
         <h3>Opinie uczestników</h3>
-        • „Super atmosfera, dużo akcji i nauki!”  
-        • „Najlepsza drużyna, jaką można sobie wyobrazić.”  
-        • „Manewry to adrenalina i świetna zabawa.”  
+        • „Super atmosfera, dużo akcji i nauki!”<br>
+        • „Najlepsza drużyna, jaką można sobie wyobrazić.”<br>
+        • „Manewry to adrenalina i świetna zabawa.”
     </div>
 </div>
+
+<div class="countdown" id="countdown"></div>
+
+<footer>
+    <div class="line"></div>
+    <div class="social">
+        <a href="https://www.facebook.com/mdposppkmgdynia" target="_blank">📘</a>
+        <a href="https://www.instagram.com/mdposppkmgdynia" target="_blank">📸</a>
+    </div>
+    <div class="author">Autor strony: Maksymilian Klemczyk</div>
+</footer>
 
 <script>
 function show(id){
@@ -145,7 +210,24 @@ function show(id){
 function kontakt(){
     window.open("https://www.facebook.com/mdposppkmgdynia", "_blank");
 }
-</script>
 
-</body>
-</html>
+/* ODLICZANIE DO 22.06 8:55 */
+const targetDate = new Date("June 22, 2026 08:55:00").getTime();
+const countdownEl = document.getElementById("countdown");
+
+function updateCountdown(){
+    const now = new Date().getTime();
+    const diff = targetDate - now;
+
+    if(diff <= 0){
+        countdownEl.innerHTML = "🚨 Manewry rozpoczęte!";
+        clearInterval(timer);
+        return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    countdownEl.innerHTML = `⏳ Do rozpoczęcia manewrów: <b>${days} dni, ${hours}h ${minutes}m ${seconds
